@@ -687,6 +687,7 @@ To see the namespace got created or not ----> kubectl get ns ----> you will see 
 To see the pods available in the argocd namespace ----> kubectl get pods -n argocd ----> you will see the pods
 
 Wait for 5 minutes for the load balancer creation. Once the loadbalancer is created, we will get the load balancer url.
+kubectl get svc argocd-server -n argocd
 
 Meanwhile execute the below commands in vs code editor
 
