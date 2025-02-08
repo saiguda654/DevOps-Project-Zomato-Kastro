@@ -752,7 +752,7 @@ sudo vi /etc/prometheus/prometheus.yml ----> Paste the below commands at the bot
   - job_name: 'k8s'
     metrics_path: '/metrics'
     static_configs:
-      - targets: ['nodeIP:9100']
+      - targets: ['nodeIP:9001']
 
 In the above, to get the "nodeIP", goto EKS in AWS ----> Click on EKS Cluster ----> "Compute" tab ----> Nodes ----> Click on any one node ----> Click on the "instance id" ----> Copy the public ip ----> Paste in the above script
 
