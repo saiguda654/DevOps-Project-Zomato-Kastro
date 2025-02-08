@@ -486,7 +486,65 @@ To resolve this issue, you can either write the entire command on a single line 
 
 Approach 1: Single Line Command (In this video i will prefer this)
 Simply run the entire command in one line without using backslashes for line continuation:
+
+#######follow the below commands if you are using your ec2(ubuntu) to setup eks cluster:
+sudo apt update
+sudo apt install awscli -y
+aws --version
+
+Download the eksctl Binary
+Edit
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_Linux_amd64.tar.gz" | tar xz -C /tmp
+
+Move eksctl to /usr/local/bin
+Edit
+sudo mv /tmp/eksctl /usr/local/bin
+
+Verify Installation
+Edit
+eksctl version
+
+C. Install kubectl
+Download the kubectl Binary
+Edit
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+Make the Binary Executable
+Edit
+chmod +x kubectl
+
+Move kubectl to /usr/local/bin
+Edit
+sudo mv kubectl /usr/local/bin
+
+Verify Installation
+Edit
+kubectl version --client
+
+3. Configuring AWS CLI
+After installing, configure your AWS credentials to interact with your AWS account:
+Run Configuration Command
+Edit
+aws configure
+
+Enter the Following:
+AWS Access Key ID: Your AWS access key
+AWS Secret Access Key: Your AWS secret key
+Default region name: us-east-1 (or your preferred region)
+Default output format: json
+
+4. Test the Setup
+List EKS Clusters (Verify AWS CLI & EKS Permissions)
+aws eks list-clusters
+
+Create a Cluster Using eksctl
+Edit
 eksctl create cluster --name=kastrocluster --region=us-east-1 --zones=us-east-1a,us-east-1b --without-nodegroup
+
+Check Cluster with kubectl
+Edit
+kubectl get svc
+
 
 
 
